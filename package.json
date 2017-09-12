@@ -1,0 +1,14 @@
+{
+  "name": "fez",
+  "version": "1.0.0",
+  "description": "A nice movie queue.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~4.15.4",
+    "mongoose": "~4.11.11",
+    "body-parser": "~1.18.0",
+    "method-override": "~2.3.9"
+  },
+  "author": "",
+  "license": "ISC"
+}
