@@ -32,13 +32,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override')); 
 
 // set the static files location /public/img will be /img for users
-app.use(express.static(__dirname + '/public')); 
+app.use(express.static(__dirname + '/public/app')); 
 
 // routes ==================================================
 require('./app/routes')(app); // configure our routes
 
 app.get('/',function(req,res){
-    res.sendFile('public/index.html' , { root : __dirname});
+    res.sendFile('public/app/index.html' , { root : __dirname });
 });
 // start app ===============================================
 // startup our app at http://localhost:8080
