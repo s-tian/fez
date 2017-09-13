@@ -5,19 +5,19 @@ var express        = require('express');
 var app            = express();
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
+var passport       = require('passport');
+
 
 // configuration ===========================================
 
 // config files
-var db = require('./config/db');
-
+require('./app/models/db');
+require('./config/passport');
 // set our port
 var port = process.env.PORT || 8080; 
 
 // connect to our mongoDB database 
 // (uncomment after you enter in your own credentials in config/db.js)
-// mongoose.connect(db.url); 
-
 // get all data/stuff of the body (POST) parameters
 // parse application/json 
 app.use(bodyParser.json()); 
@@ -34,8 +34,22 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 // set the static files location /public/img will be /img for users
 app.use(express.static(__dirname + '/public/app')); 
 
+
+//var pass_config = require('./config/passport');
+
+app.use(passport.initialize());
+
 // routes ==================================================
-require('./app/routes')(app); // configure our routes
+var routesApi = require('./app/routes'); // configure our routes
+
+app.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401);
+    res.json({"message" : err.name + ": " + err.message});
+  }
+});
+
+app.use('/api', routesApi);
 
 app.get('/',function(req,res){
     res.sendFile('public/app/index.html' , { root : __dirname });
