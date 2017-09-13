@@ -21,3 +21,4 @@ angular-src/node_modules
 .sass-cache/
 config/
 public/
+bower_components/
