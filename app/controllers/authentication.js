@@ -24,6 +24,7 @@ module.exports.register = function(req, res) {
       "token" : token
     });
   });
+  console.log("Saved user " + req.body.name);
 };
 
 module.exports.login = function(req, res) {
@@ -44,6 +45,7 @@ module.exports.login = function(req, res) {
       res.json({
         "token" : token
       });
+      console.log("Logged in user");
     } else {
       // If user is not found
       res.status(401).json(info);

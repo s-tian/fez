@@ -32,12 +32,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override')); 
 
 // set the static files location /public/img will be /img for users
-app.use(express.static(__dirname + '/public/app')); 
+app.use(express.static(__dirname + '/client/build')); 
 
 
 //var pass_config = require('./config/passport');
 
 app.use(passport.initialize());
+
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    next();
+}
+
+app.use(allowCrossDomain);
 
 // routes ==================================================
 var routesApi = require('./app/routes'); // configure our routes
@@ -52,8 +62,11 @@ app.use(function (err, req, res, next) {
 app.use('/api', routesApi);
 
 app.get('/',function(req,res){
-    res.sendFile('public/app/index.html' , { root : __dirname });
+    res.sendFile('client/build/index.html' , { root : __dirname });
 });
+
+
+
 // start app ===============================================
 // startup our app at http://localhost:8080
 app.listen(port);               
