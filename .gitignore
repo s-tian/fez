@@ -17,8 +17,9 @@ ehthumbs.db
 Thumbs.db
 
 node_modules/
-angular-src/node_modules
+client/node_modules
 .sass-cache/
 config/
 public/
 bower_components/
+build/

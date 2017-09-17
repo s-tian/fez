@@ -1,0 +1,39 @@
+.navbar {
+  padding-left: 18%;
+  padding-right: 18%;
+  webkit-box-shadow: 0 5px 8px -6px #999;
+  -moz-box-shadow: 0 5px 8px -6px #999;
+  box-shadow: 0 5px 8px -6px #999;
+  height: 64px;
+  font-family: 'Montserrat', sans-serif;
+  .container-fluid {
+    height:100%;
+  }
+
+  .navbar-header {
+    height: 100%;
+  }
+  .navbar-brand {
+    height: 64px;
+    padding: 10px;
+    img {
+      max-height: 100%;
+      width: auto;
+    }
+  }
+
+  ul {
+    height: 64px; 
+    li {
+      height: 100%;
+      a {
+        padding-top: 24px;
+        color: #757575;
+        height: 100%;
+        padding-right: 35px;
+        padding-left: 35px;
+        font-size: 1.15em;
+      }
+    }
+  }
+}
