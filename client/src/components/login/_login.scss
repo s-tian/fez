@@ -23,7 +23,7 @@ $button-orange: #e67e22;
 	};
 }
 
-#sign-in-button {
+.submit-form-button {
 	width: 60%;
 	display: block;
 	margin: 0 auto;
@@ -34,9 +34,10 @@ $button-orange: #e67e22;
 	background-color: white;
 }
 
-.form-signin-heading {
+.form-heading {
 	text-align: center;
 	margin-bottom: 40px;
+	font-family: 'Quicksand', sans-serif;
 }
 
 #err-msg {
@@ -47,9 +48,6 @@ $button-orange: #e67e22;
 	margin-top: 20px;
 }
 
-#sign-in-heading {
-	font-family: 'Quicksand', sans-serif;
-}
 
 .center-flex {
   height: 75%;

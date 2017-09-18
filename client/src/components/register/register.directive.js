@@ -3,8 +3,8 @@
     'use strict';
 
     angular.module('app.register')
-        .directive('register', directiveFunction)
-        .controller('RegisterController', ControllerFunction);
+    .directive('register', directiveFunction)
+    .controller('RegisterController', ControllerFunction);
 
 
     // ----- directiveFunction -----
@@ -32,23 +32,32 @@
         var vm = this;
 
         vm.credentials = {
-          name : "",
           email : "",
-          password : ""
-        };
+          password : "",
+          password_confirm: ""
+      };
 
-        vm.onSubmit = function () {
+      vm.onSubmit = function () {
           console.log('Submitting registration');
-          authentication
+          if(vm.credentials.password !== vm.credentials.password_confirm) {
+            vm.errorMessage = "Your passwords didn't match."
+        } else {
+            authentication
             .register(vm.credentials)
             .error(function(err){
-              alert(err);
-            })
+              console.log(err);
+              if(err === null) {
+                vm.errorMessage = "Something went wrong with the server :("; 
+            } else {
+                vm.errorMessage = err.message;
+            }
+        })
             .then(function(){
               $state.go('dashboard');
-            });
-        };
+          });
+        }
+    };
 
-    }
+}
 
 })();
