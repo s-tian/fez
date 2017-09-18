@@ -27,8 +27,13 @@
 
 
     // ----- ControllerFunction -----
-    ControllerFunction.$inject = ['$location', 'dataRetrieve'];
-    function ControllerFunction($location, dataRetrieve) {
+    ControllerFunction.$inject = ['$location', '$state', '$stateParams', 'authentication', 'dataRetrieve'];
+    function ControllerFunction($location, $state, $stateParams, authentication, dataRetrieve) {
+
+        if(!authentication.isLoggedIn()) {
+            $state.go("login", {error: "You must login first!"});
+        }
+
         var vm = this;
 
         vm.user = {};

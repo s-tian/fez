@@ -22,7 +22,10 @@
         $stateProvider
             .state('login', {
                 url: '/login',
-                template: '<login></login>'
+                template: '<login></login>',
+                params: {
+                    error: ""
+                }
             });
         $stateProvider
             .state('register', {

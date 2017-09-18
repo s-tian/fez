@@ -26,10 +26,12 @@
     }
 
 
-    ControllerFunction.$inject = ['$state', 'authentication'];  
-    function ControllerFunction($state, authentication) {
+    ControllerFunction.$inject = ['$state', '$stateParams', 'authentication'];  
+    function ControllerFunction($state, $stateParams, authentication) {
 
         var vm = this;
+
+        vm.errorMessage = $stateParams.error;
 
         vm.credentials = {
           email : "",
