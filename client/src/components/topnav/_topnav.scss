@@ -5,7 +5,10 @@
   -moz-box-shadow: 0 5px 8px -6px #999;
   box-shadow: 0 5px 8px -6px #999;
   height: 64px;
+  margin-bottom: 0px;
   font-family: 'Montserrat', sans-serif;
+  background-color: white;
+  
   .container-fluid {
     height:100%;
   }
@@ -13,6 +16,7 @@
   .navbar-header {
     height: 100%;
   }
+
   .navbar-brand {
     height: 64px;
     padding: 10px;

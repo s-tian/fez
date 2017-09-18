@@ -4,5 +4,13 @@
 
 @import "core/styles/core";
 
+/* TODO: reorganize this */
+body {
+	height: 100vh;
+	padding-top: 64px;
+}
+
 /* Component styling */
 @import "components/topnav/topnav";
+@import "components/approot/approot";
+@import "components/login/login";
