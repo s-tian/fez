@@ -1,39 +1,38 @@
 
-<div class="panel-box">
-  	
+<div class="center-flex">
+	<div class="panel-box">
+		<section id="login-view" class="container-fluid">
+			<div ng-if="vm.errorMessage">
+				<div id="err-msg" class="alert alert-danger"> 
+					{{ vm.errorMessage }} 
+				</div> 
+			</div>
 
-	<section id="login-view" class="container-fluid">
-		<div ng-if="vm.errorMessage">
-			<div id="err-msg" class="alert alert-danger"> 
-				{{ vm.errorMessage }} 
-			</div> 
+		  <div class="row">
+		    
+		    <div class="col-md-12">
+
+		      <h1 id="sign-in-heading" class="form-signin-heading">Sign in</h1>
+
+		  
+		      <form ng-submit="vm.onSubmit()">
+		        <div class="form-group">
+		            <div class="input-group col-sm-12">
+		          		<span class="input-group-addon"> <i class = "glyphicon glyphicon-envelope"></i></span>
+		          		<input type="email" class="form-control" id="email" placeholder="Email" ng-model="vm.credentials.email">
+		        	</div>
+		        </div>
+		        <div class="form-group">
+		        	<div class="input-group col-sm-12">
+		          		<span class="input-group-addon"> <i class = "glyphicon glyphicon-lock"></i></span>
+		          		<input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.credentials.password">
+		          	</div>
+		        </div>
+		        <button type="submit" class="btn btn-outline-custom" id="sign-in-button">LOGIN</button>
+		      </form>
+		    </div>
+		  </div>
 		</div>
-
-	  <div class="row">
-	    
-	    <div class="col-md-12">
-
-	      <h1 id="sign-in-heading" class="form-signin-heading">Sign in</h1>
-
-	  
-	      <form ng-submit="vm.onSubmit()">
-	        <div class="form-group">
-	            <div class="input-group col-sm-12">
-	          		<span class="input-group-addon"> <i class = "glyphicon glyphicon-envelope"></i></span>
-	          		<input type="email" class="form-control" id="email" placeholder="Email" ng-model="vm.credentials.email">
-	        	</div>
-	        </div>
-	        <div class="form-group">
-	        	<div class="input-group col-sm-12">
-	          		<span class="input-group-addon"> <i class = "glyphicon glyphicon-lock"></i></span>
-	          		<input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.credentials.password">
-	          	</div>
-	        </div>
-	        <button type="submit" class="btn btn-outline-custom" id="sign-in-button">LOGIN</button>
-	      </form>
-	    </div>
-	  </div>
 	</div>
 </div>
-
 </section>	

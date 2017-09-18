@@ -6,7 +6,7 @@
     -moz-box-shadow: 5px 7px 8px -6px #999;
     box-shadow: 5px 8px 7px -6px #999;
     width: 400px;
-    margin: 5% auto;
+    margin: auto;
 }
 
 $button-orange: #e67e22;
@@ -49,4 +49,10 @@ $button-orange: #e67e22;
 
 #sign-in-heading {
 	font-family: 'Quicksand', sans-serif;
+}
+
+.center-flex {
+  height: 75%;
+  display: flex;
+  align-items: center;
 }
