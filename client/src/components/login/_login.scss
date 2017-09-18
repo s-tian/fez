@@ -1,10 +1,52 @@
 .panel-box {
 	background-color: white;
-	padding: 15px 30px 45px 30px;
-	border-radius: 15px;
-	webkit-box-shadow: 0 8px 8px -6px #999;
-    -moz-box-shadow: 0 8px 8px -6px #999;
-    box-shadow: 0 8px 8px -6px #999;
+	padding: 15px 30px 30px 30px;
+	border-radius: 5px;
+	webkit-box-shadow: 5px 7px 8px -6px #999;
+    -moz-box-shadow: 5px 7px 8px -6px #999;
+    box-shadow: 5px 8px 7px -6px #999;
     width: 400px;
     margin: 5% auto;
+}
+
+$button-orange: #e67e22;
+
+.btn-outline-custom {
+	background-color: white;
+	color: $button-orange;
+	transition-duration: 0.2s;
+	-webkit-transition-duration: 0.2s;
+	border: 1px solid;
+	&:hover {
+		color: white;
+		background-color: $button-orange;
+	};
+}
+
+#sign-in-button {
+	width: 60%;
+	display: block;
+	margin: 0 auto;
+	margin-top: 35px;
+}
+
+.input-group-addon {
+	background-color: white;
+}
+
+.form-signin-heading {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+#err-msg {
+	margin-bottom: 0px;
+}
+
+.form-group {
+	margin-top: 20px;
+}
+
+#sign-in-heading {
+	font-family: 'Quicksand', sans-serif;
 }

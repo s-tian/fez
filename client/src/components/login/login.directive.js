@@ -41,7 +41,11 @@
             .login(vm.credentials)
             .error(function(err){
                 console.log(err);
-                vm.errorMessage = err.message;
+                if(err === null) {
+                    vm.errorMessage = "Something went wrong with the server :("; 
+                } else {
+                    vm.errorMessage = err.message;
+                }
             })
             .then(function(){
               $state.go('dashboard');
