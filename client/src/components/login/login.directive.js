@@ -26,7 +26,7 @@
     }
 
 
-    ControllerFunction.$inject = ['$state', 'authentication'];
+    ControllerFunction.$inject = ['$state', 'authentication'];  
     function ControllerFunction($state, authentication) {
 
         var vm = this;
@@ -40,7 +40,8 @@
           authentication
             .login(vm.credentials)
             .error(function(err){
-              alert(err);
+                console.log(err);
+                vm.errorMessage = err.message;
             })
             .then(function(){
               $state.go('dashboard');

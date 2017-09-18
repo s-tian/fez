@@ -49,7 +49,7 @@
       });
     };
 
-    var login = function(user) {
+    var login = function(user) {  
       return $http.post('http://localhost:8080/api/login', user).success(function(data) {
         saveToken(data.token);
       });
