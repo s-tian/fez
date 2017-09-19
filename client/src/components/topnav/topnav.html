@@ -1,7 +1,7 @@
 <!-- expand/collapse behavior adapted from https://github.com/angular-ui/bootstrap/blob/master/misc/demo/index.html -->
 
 
-<nav class="navbar navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" ng-click="vm.isCollapsed = !vm.isCollapsed" aria-expanded="false" aria-controls="navbar">
@@ -15,11 +15,14 @@
 
         <div id="navbar" class="navbar-collapse collapse" ng-class="!vm.isCollapsed && 'in'">
             <ul class="nav navbar-nav navbar-right">
-                <li ui-sref-active="active">
+                <li ng-if="!vm.authentication.isLoggedIn()" ui-sref-active="active">
                     <a ui-sref="login" ng-click="vm.isCollapsed = !vm.isCollapsed">Login</a>
                 </li>
-                <li ui-sref-active="active">
+                <li ng-if="!vm.authentication.isLoggedIn()" ui-sref-active="active">
                     <a ui-sref="register" ng-click="vm.isCollapsed = !vm.isCollapsed">Register</a>
+                </li>
+                <li ng-if="vm.authentication.isLoggedIn()" ui-sref-active="active">
+                    <a ui-sref="login" ng-click="vm.isCollapsed = !vm.isCollapsed; vm.authentication.logout()">Logout</a>
                 </li>
             </ul>
         </div>

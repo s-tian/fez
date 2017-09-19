@@ -17,6 +17,10 @@
     height: 100%;
   }
 
+  .navbar-toggle {
+    height: 50px;
+  }
+
   .navbar-brand {
     height: 64px;
     padding: 10px;
@@ -40,6 +44,27 @@
         padding-right: 35px;
         padding-left: 35px;
         font-size: 1.15em;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-collapse {
+    background-color: white;
+    height: 100px;
+    padding: 0;
+    ul {
+      margin: 0;
+      height: 100%;
+      li {
+        height: 50px;
+        a {
+          height: 100%;
+          padding: 0;
+          line-height: 50px;
+          text-align: center;
+        }
       }
     }
   }

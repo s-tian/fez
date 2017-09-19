@@ -26,12 +26,13 @@
     }
 
     // ----- ControllerFunction -----
-    ControllerFunction.$inject = [];
+    ControllerFunction.$inject = ['authentication'];
 
     /* @ngInject */
-    function ControllerFunction() {
+    function ControllerFunction(authentication) {
         var vm = this;
         vm.isCollapsed = true;
+        vm.authentication = authentication;
     }
 
 })();
