@@ -2,9 +2,9 @@
 
     'use strict';
 
-    angular.module('app.profile')
-        .directive('profile', directiveFunction)
-        .controller('ProfileController', ControllerFunction);
+    angular.module('app.listing')
+        .directive('listing', directiveFunction)
+        .controller('ListingController', ControllerFunction);
 
 
     // ----- directiveFunction -----
@@ -15,10 +15,10 @@
 
         var directive = {
             restrict: 'E',
-            templateUrl: 'components/profile/profile.html',
+            templateUrl: 'components/listing/listing.html',
             scope: {
             },
-            controller: 'ProfileController',
+            controller: 'ListingController',
             controllerAs: 'vm'
         };
 
@@ -45,5 +45,9 @@
           .error(function (e) {
             console.log(e);
           });
+
+        vm.searchBarEntry = {
+            text: ""
+        }
     }
 })();

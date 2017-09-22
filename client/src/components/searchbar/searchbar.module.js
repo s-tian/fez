@@ -1,8 +1,8 @@
 (function() {
     'use strict';
 
-    angular.module('app.profile', [
+    angular.module('app.listing.searchbar', [
         'app.core',
-        'core.data'
+        'core.data',
     ]);
 })();

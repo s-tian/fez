@@ -33,9 +33,9 @@
                 template: '<register></register>'
             });
         $stateProvider
-            .state('profile', {
-                url: '/profile',
-                template: '<profile></profile>'
+            .state('listing', {
+                url: '/listing',
+                template: '<listing></listing>'
             })
     }
 })();

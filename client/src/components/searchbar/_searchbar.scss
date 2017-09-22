@@ -1,0 +1,33 @@
+.search-bar-box {
+	background-color: #e67e22;
+	height: 75px;
+	width: 100%;
+	padding: 1px 100px 3px 100px;
+}
+
+#inp-container {
+	width: 50%;
+	margin: 0 auto;
+	height: 100%;
+}
+
+#search-inp {
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	text-indent: 40px;
+  	font-family: 'Montserrat', sans-serif;
+}
+
+.search{
+	position: relative;
+	height: 100%;
+}
+
+.search i {
+	position: absolute;
+ 	top: 26px;
+ 	left: 15px;
+ 	font-size: 20px;
+ 	color: gray;
+}

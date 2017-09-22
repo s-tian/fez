@@ -50,7 +50,7 @@
                 }
             })
             .then(function(){
-              $state.go('dashboard');
+              $state.go('listing');
             });
         };
 

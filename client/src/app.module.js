@@ -11,6 +11,6 @@
         'app.topnav',
         'app.login',
         'app.register',
-        'app.profile'
+        'app.listing'
     ]);
 })();
