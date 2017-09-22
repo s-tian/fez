@@ -45,9 +45,10 @@
           .error(function (e) {
             console.log(e);
           });
-
+        
         vm.searchBarEntry = {
             text: ""
         }
+
     }
 })();

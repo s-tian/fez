@@ -1,6 +1,7 @@
 var passport = require('passport');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var Movie = mongoose.model('Movie');
 
 module.exports.register = function(req, res) {
   if(!req.body.email || !req.body.password) {
@@ -14,7 +15,12 @@ module.exports.register = function(req, res) {
   user.email = req.body.email;
 
   user.setPassword(req.body.password);
-
+  var movie1 = new Movie();
+  movie1.title = "good movie";
+  var movie2 = new Movie();
+  movie2.title = "gr8 movie";
+  user.movie_list = [movie1, movie2];
+  
   user.save(function(err) {
     var token;
     token = user.generateJwt();

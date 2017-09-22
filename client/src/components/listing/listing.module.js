@@ -4,6 +4,7 @@
     angular.module('app.listing', [
         'app.core',
         'core.data',
-        'app.listing.searchbar'
+        'app.listing.searchbar',
+        'app.listing.infotile'
     ]);
 })();

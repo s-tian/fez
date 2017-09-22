@@ -3,11 +3,8 @@
 <section id="listing-view" class="container-fluid">
 
   <div class="container">
-    <div class="row">
-
-      <div class="col-md-6">
-      </div>  
-
+    <div ng-repeat="movie in vm.user.movie_list">
+    	<infotile movie="movie"> </infotile>
     </div>
   </div>
 

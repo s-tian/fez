@@ -2,6 +2,14 @@ var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
 
+var movieSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true
+  }
+});
+mongoose.model('Movie', movieSchema);
+
 var userSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -9,7 +17,8 @@ var userSchema = new mongoose.Schema({
     required: true
   },
   hash: String,
-  salt: String
+  salt: String,
+  movie_list: [movieSchema]
 });
 
 userSchema.methods.setPassword = function(password){
