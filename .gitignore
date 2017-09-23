@@ -24,3 +24,4 @@ public/
 bower_components/
 build/
 app/models/db.js
+app/models/jwt_config.js

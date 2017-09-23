@@ -3,7 +3,7 @@
 <section id="listing-view" class="container-fluid">
 
   <div class="container">
-    <div ng-repeat="movie in vm.user.movie_list">
+    <div ng-repeat="movie in vm.user.movie_list | searchBoxFilter:vm.searchBarEntry.text">
     	<infotile movie="movie"> </infotile>
     </div>
   </div>

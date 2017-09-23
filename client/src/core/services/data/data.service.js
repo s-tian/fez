@@ -3,18 +3,19 @@
 
   angular
     .module('core.data')
-    .service('dataRetrieve', dataRetrieve);
+    .service('dataService', dataService);
 
-  dataRetrieve.$inject = ['$http', 'authentication'];
-  function dataRetrieve ($http, authentication) {
+  dataService.$inject = ['$http', 'authentication'];
+  function dataService ($http, authentication) {
 
     var getProfile = function () {
-      return $http.get('http://localhost:8080/api/profile', {
+      return $http.get('http://localhost:8080/api/user', {
         headers: {
           Authorization: 'Bearer '+ authentication.getToken()
         }
       });
     };
+
 
     return {
       getProfile : getProfile

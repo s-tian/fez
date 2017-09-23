@@ -27,8 +27,8 @@
 
 
     // ----- ControllerFunction -----
-    ControllerFunction.$inject = ['$location', '$state', '$stateParams', 'authentication', 'dataRetrieve'];
-    function ControllerFunction($location, $state, $stateParams, authentication, dataRetrieve) {
+    ControllerFunction.$inject = ['$location', '$state', '$stateParams', 'authentication', 'dataService'];
+    function ControllerFunction($location, $state, $stateParams, authentication, dataService) {
 
         if(!authentication.isLoggedIn()) {
             $state.go("login", {error: "You must login first!"});
@@ -38,14 +38,14 @@
 
         vm.user = {};
 
-        dataRetrieve.getProfile()
+        dataService.getProfile()
           .success(function(data) {
             vm.user = data;
           })
           .error(function (e) {
             console.log(e);
           });
-        
+
         vm.searchBarEntry = {
             text: ""
         }

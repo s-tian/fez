@@ -1,6 +1,7 @@
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
+var jwt_config = require('./jwt_config')
 
 var movieSchema = new mongoose.Schema({
   title: {
@@ -39,7 +40,7 @@ userSchema.methods.generateJwt = function() {
     _id: this._id,
     email: this.email,
     exp: parseInt(expiry.getTime() / 1000),
-  }, "temp_secret"); // TODO: Use environment variable
+  }, jwt_config.jwt_secret); // TODO: Use environment variable
 };
 
 mongoose.model('User', userSchema);
