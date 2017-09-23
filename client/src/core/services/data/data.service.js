@@ -16,9 +16,17 @@
       });
     };
 
+    var addMovie = function (title) {
+      return $http.post('http://localhost:8080/api/add', {"title": title} ,{
+        headers: {
+          Authorization: 'Bearer '+ authentication.getToken()
+        }
+      });
+    };
 
     return {
-      getProfile : getProfile
+      getProfile : getProfile,
+      addMovie: addMovie
     };
   }
 
