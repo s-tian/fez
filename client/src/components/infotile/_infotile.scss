@@ -1,0 +1,83 @@
+.tile {
+    /* Add shadows to create the "card" effect */
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    color: black;
+  	height: 300px;
+  	width: 200px;
+  	margin: 0 auto;
+}
+
+
+/* On mouse-over, add a deeper shadow */
+.tile:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.title {
+	overflow: scroll;
+	word-wrap: break-word;
+}
+
+.col-padding {
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+@media (max-width: 991px) {
+	.tile {
+		width: 250px;
+		margin: 0 auto;
+	}
+}
+
+.movie_poster {
+	max-width:100%;
+	max-height:100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 32px 10px 32px;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #1a1a1a;
+  background-clip: content-box;
+}
+
+.tile:hover .overlay {
+  opacity: 0.6;
+}
+
+.fa-button {
+  background: transparent;
+  border: none;
+  opacity: 1;
+  margin: 0px 15px 0px 15px;
+}
+
+.button-div {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height: 100%;
+}
+
+i[class*=fa-check]::before{
+   opacity: 1;
+   color: white;
+}
+
+i[class*=fa-times]::before{
+   opacity: 1;
+   color: white;
+}

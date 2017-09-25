@@ -1,12 +1,13 @@
 <searchbar> </searchbar>
 
 <section id="listing-view" class="container-fluid">
-
-  <div class="container">
-    <div ng-repeat="movie in vm.user.movie_list | searchBoxFilter:vm.searchBarEntry.text">
-    	<infotile movie="movie"> </infotile>
+  <div class="container movie_listing">
+    <div ng-repeat="movie in vm.test_movie_list | searchBoxFilter:vm.searchBarEntry.text">
+    	<div class="clearfix" ng-if="$index % 4 == 0 && $index != 0"></div>
+    	<div class="col-md-3 col-padding">
+    		<infotile movie="movie"> </infotile>
+    	</div>
     </div>
   </div>
 
-  Hi! {{ vm.searchBarEntry.text }}
 </section>

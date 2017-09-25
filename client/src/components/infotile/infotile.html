@@ -1,1 +1,13 @@
-{{movie.title}}
+<div class="tile">
+	<img class="movie_poster" ng-src="{{movie.poster_url}}">
+	<div class="overlay">
+		<div class="button-div">
+			<button title="Mark as watched" class="fa-button">
+				<i class="fa fa-check fa-3x" aria-hidden="true"></i>
+			</button>
+			<button title="Remove" class="fa-button">
+				<i class="fa fa-times fa-3x" aria-hidden="true"></i>
+			</button>
+		</div>
+	</div>
+</div>

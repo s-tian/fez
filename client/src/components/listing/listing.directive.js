@@ -3,8 +3,8 @@
     'use strict';
 
     angular.module('app.listing')
-        .directive('listing', directiveFunction)
-        .controller('ListingController', ControllerFunction);
+    .directive('listing', directiveFunction)
+    .controller('ListingController', ControllerFunction);
 
 
     // ----- directiveFunction -----
@@ -27,8 +27,8 @@
 
 
     // ----- ControllerFunction -----
-    ControllerFunction.$inject = ['$location', '$state', '$stateParams', 'authentication', 'dataService'];
-    function ControllerFunction($location, $state, $stateParams, authentication, dataService) {
+    ControllerFunction.$inject = ['$scope','$location', '$state', '$stateParams', 'authentication', 'dataService'];
+    function ControllerFunction($scope, $location, $state, $stateParams, authentication, dataService) {
 
         if(!authentication.isLoggedIn()) {
             $state.go("login", {error: "You must login first!"});
@@ -39,35 +39,89 @@
         vm.user = {};
 
         dataService.getProfile()
-          .success(function(data) {
+        .success(function(data) {
             vm.user = data;
-          })
-          .error(function (e) {
+        })
+        .error(function (e) {
             console.log(e);
-          });
+        });
 
         vm.searchBarEntry = {
             text: ""
         }
 
+        vm.test_movie_list = [
+            {
+                title: "Spiderman",
+                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
+            },
+            {
+                title: "Spiderman",
+                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
+            },
+            {
+                title: "Spiderman",
+                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
+            },
+            {
+                title: "Spiderman",
+                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
+            },
+            {
+                title: "Spiderman",
+                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
+            },
+            {
+                title: "Spiderman",
+                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
+            },
+            {
+                title: "Spiderman",
+                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
+            },
+            {
+                title: "Spiderman",
+                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
+            },
+            {
+                title: "Spiderman",
+                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
+            },
+            {
+                title: "Spiderman",
+                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
+            },
+            {
+                title: "Spiderman",
+                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
+            }
+        ]
+
+        vm.update = function() {
+            dataService.getProfile()
+            .success(function(data) {
+                vm.user = data;
+            })
+            .error(function (e) {
+                console.log(e);
+            });
+        }
+
+        $scope.$on('update', function (e, event) {
+            vm.update();
+        });
+
         vm.test_add = function(title) {
             dataService.addMovie(title)
             .error(function(err){
-              console.log(err);
-              if(err === null) {
-                vm.errorMessage = "Something went wrong with the server :("; 
-              } else {
-                vm.errorMessage = err.message;
-              }
+                console.log(err);
+                if(err === null) {
+                    vm.errorMessage = "Something went wrong with the server :("; 
+                } else {
+                    vm.errorMessage = err.message;
+                }
             }).then(function() {
-                console.log("I'm in then!");
-                dataService.getProfile()
-                .success(function(data) {
-                    vm.user = data;
-                })
-                .error(function (e) {
-                    console.log(e);
-                });
+                vm.update();
             })
         };
     }

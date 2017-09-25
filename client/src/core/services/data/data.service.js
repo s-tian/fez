@@ -24,9 +24,18 @@
       });
     };
 
+    var deleteMovie = function (id) {
+      return $http.post('http://localhost:8080/api/delete', {"id": id} ,{
+        headers: {
+          Authorization: 'Bearer '+ authentication.getToken()
+        }
+      });
+    };
+
     return {
       getProfile : getProfile,
-      addMovie: addMovie
+      addMovie : addMovie,
+      deleteMovie: deleteMovie
     };
   }
 

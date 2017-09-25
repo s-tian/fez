@@ -1,8 +1,11 @@
+
 .search-bar-box {
 	background-color: #e67e22;
 	height: 75px;
 	width: 100%;
 	padding: 1px 100px 3px 100px;
+	position: fixed;
+	z-index: 10;
 }
 
 #inp-container {
