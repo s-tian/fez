@@ -5,6 +5,6 @@
         'app.core',
         'core.data',
         'app.listing.searchbar',
-        'app.listing.infotile'
+        'app.listing.infotile',
     ]);
 })();

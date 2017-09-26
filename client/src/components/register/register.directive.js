@@ -48,10 +48,10 @@
               console.log(err);
               if(err === null) {
                 vm.errorMessage = "Something went wrong with the server :("; 
-            } else {
+              } else {
                 vm.errorMessage = err.message;
-            }
-        })
+              }
+            })
             .then(function(){
               $state.go('dashboard');
           });

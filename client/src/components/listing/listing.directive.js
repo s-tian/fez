@@ -27,8 +27,8 @@
 
 
     // ----- ControllerFunction -----
-    ControllerFunction.$inject = ['$scope','$location', '$state', '$stateParams', 'authentication', 'dataService'];
-    function ControllerFunction($scope, $location, $state, $stateParams, authentication, dataService) {
+    ControllerFunction.$inject = ['$scope', '$window', '$location', '$state', '$stateParams', 'authentication', 'dataService'];
+    function ControllerFunction($scope, $window, $location, $state, $stateParams, authentication, dataService) {
 
         if(!authentication.isLoggedIn()) {
             $state.go("login", {error: "You must login first!"});
@@ -37,6 +37,8 @@
         var vm = this;
 
         vm.user = {};
+
+        vm.windowWidth = $window.innerWidth;
 
         dataService.getProfile()
         .success(function(data) {

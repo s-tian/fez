@@ -7,16 +7,13 @@
   height: 300px;
   width: 200px;
   margin: 0 auto;
+  position: relative;
 }
+
 
 /* On mouse-over, add a deeper shadow */
 .tile:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-.title {
-	overflow: scroll;
-	word-wrap: break-word;
 }
 
 .col-padding {
@@ -26,11 +23,18 @@
 	padding-bottom: 10px;
 }
 
-@media (max-width: 991px) {
-	.tile {
-		width: 250px;
-		margin: 0 auto;
-	}
+
+@media (max-width: 1200px) {
+  .col-padding {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 320px) {
+  .col-padding {
+    padding: 0;
+  }
 }
 
 .movie_poster {
@@ -44,14 +48,15 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 10px 32px 10px 32px;
-  height: 100%;
-  width: 100%;
+  height: 300px;
+  width: 200px;
   opacity: 0;
   transition: .5s ease;
   background-color: #1a1a1a;
   background-clip: content-box;
 }
+
+
 
 .tile:hover .overlay {
   opacity: 0.6;
@@ -62,7 +67,6 @@
   border: none;
   opacity: 1;
   margin: 0px 20px 0px 20px;
-
 }
 
 .button-div {
