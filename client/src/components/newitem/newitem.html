@@ -1,0 +1,9 @@
+<div id="add-inp" ng-class="{'display-vis-inline': vm.barActive,
+'display-none': !vm.barActive}"
+ ng-mouseover="vm.barActive=true"
+ ng-mouseleave="vm.barActive=false; vm.barOpen = false">
+</div>
+
+<button id="add-button" class="no-bord" ng-click="vm.barOpen = !vm.barOpen; vm.barActive = vm.barOpen">
+    <i id="add-icon" class="no-bord material-icons">add_to_queue</i>
+</button>

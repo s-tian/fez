@@ -1,0 +1,42 @@
+#add-button {
+	background-color: #e67e22;
+	border: none;
+	border-radius: 50%;
+	height: 70px;
+	width: 70px;
+	padding-top: 5px;
+	/*webkit-box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+    box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+    &:hover {
+    	webkit-box-shadow: 0 0 8px rgba(0,0,0,.14), 0 6px 10px rgba(0,0,0,.28);
+    	moz-box-shadow: 0 0 8px rgba(0,0,0,.14), 0 6px 10px rgba(0,0,0,.28);
+    	box-shadow: 0 0 8px rgba(0,0,0,.14), 0 6px 10px rgba(0,0,0,.28);
+    }
+    */
+    float: right;
+}
+
+#add-icon {
+	font-size: 30px;
+	color: white;
+}
+
+#add-inp {
+	height: 70px;
+	position: absolute;
+	background-color: #e67e22;
+	border-radius: 50px 0 0 50px;
+	z-index: -1;
+	right: 30px;
+	transition: width 0.3s ease-in-out;
+}
+
+.display-vis-inline {
+	width: 325px;
+}
+
+.display-none {
+	width: 0px;
+}
+

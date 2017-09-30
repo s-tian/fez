@@ -1,5 +1,6 @@
 @import "components/searchbar/searchbar";
 @import "components/infotile/infotile";
+@import "components/newitem/newitem";
 
 listing {
 	margin: 0;
@@ -22,4 +23,10 @@ listing {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: #555;
+}
+
+newitem {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
 }
