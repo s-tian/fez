@@ -10,7 +10,6 @@
   position: relative;
 }
 
-
 /* On mouse-over, add a deeper shadow */
 .tile:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -21,14 +20,8 @@
 	padding-right: 15px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-}
-
-
-@media (max-width: 1200px) {
-  .col-padding {
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 @media (max-width: 320px) {
@@ -55,8 +48,6 @@
   background-color: #1a1a1a;
   background-clip: content-box;
 }
-
-
 
 .tile:hover .overlay {
   opacity: 0.6;
