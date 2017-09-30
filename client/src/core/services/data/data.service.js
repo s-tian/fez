@@ -32,10 +32,19 @@
       });
     };
 
+    var getPreview = function(query) {
+      return $http.post('http://localhost:8080/api/preview', {"query": query}, {
+        headers: {
+          Authorization: 'Bearer '+ authentication.getToken()
+        }
+      });
+    }
+
     return {
       getProfile : getProfile,
       addMovie : addMovie,
-      deleteMovie: deleteMovie
+      deleteMovie: deleteMovie,
+      getPreview: getPreview
     };
   }
 

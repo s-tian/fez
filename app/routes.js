@@ -9,11 +9,12 @@ var auth = jwt({
 
 var ctrlProfile = require('./controllers/profile');
 var ctrlAuth = require('./controllers/authentication');
-
+var ctrlMovie = require('./controllers/movie_data')
 // profile
 router.get('/user', auth, ctrlProfile.profileRead);
 router.post('/add', auth, ctrlProfile.addMovie);
 router.post('/delete', auth, ctrlProfile.deleteMovie);
+router.post('/preview', ctrlMovie.getSearchData);
 router.get('/')
 // authentication
 router.post('/register', ctrlAuth.register);

@@ -5,6 +5,7 @@
     <div ng-show="vm.barActive" class="new-movie">
             <input ng-class="{'display-inp': vm.barActive,
             'display-none': !vm.barActive}"
+            ng-change="vm.queue_update(vm.add_inp)"
             class="form-control" id="new-inp" placeholder="Add a new movie..." ng-model="vm.add_inp">
     </div>
 </div>
