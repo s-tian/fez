@@ -32,5 +32,6 @@
         var vm = this;
         vm.barOpen = false;
         vm.barActive = false;
+        vm.add_inp = ""
     };
 })();

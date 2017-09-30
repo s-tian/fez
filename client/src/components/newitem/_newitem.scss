@@ -5,15 +5,10 @@
 	height: 70px;
 	width: 70px;
 	padding-top: 5px;
-	/*webkit-box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
-    -moz-box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
-    box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
-    &:hover {
-    	webkit-box-shadow: 0 0 8px rgba(0,0,0,.14), 0 6px 10px rgba(0,0,0,.28);
-    	moz-box-shadow: 0 0 8px rgba(0,0,0,.14), 0 6px 10px rgba(0,0,0,.28);
-    	box-shadow: 0 0 8px rgba(0,0,0,.14), 0 6px 10px rgba(0,0,0,.28);
-    }
-    */
+	webkit-box-shadow: 0 0 4px rgba(0,0,0,.14);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0,.14);
+    box-shadow: 0 0 4px rgba(0,0,0,.14);
+    
     float: right;
 }
 
@@ -40,3 +35,15 @@
 	width: 0px;
 }
 
+.display-inp{
+	width: 285px;
+}
+
+#new-inp {
+	margin: 18px 0 0 15px;
+	border-radius: 20px;
+	position: absolute;
+	right: 20px;
+	font-family: 'Montserrat', sans-serif;
+	transition: width 0.35s ease-in-out;
+}
