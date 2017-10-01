@@ -51,7 +51,7 @@
 #preview-panel {
 	position: absolute;
 	top: -90px;
-	right: 30px;
+	right: 0px;
 	float: right;
 	height: 90px;
 	background-color: white;
@@ -66,8 +66,8 @@
 }
 
 .display-prev{
-	width: 280px;
-	padding: 10px 10px 10px 10px;
+	width: 310px;
+	padding: 10px 20px 10px 20px;
 }
 
 .preview-poster {
@@ -91,6 +91,15 @@
 	height: 50%;
 	word-wrap: break-word;
 	white-space: pre-wrap;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.p-show {
+	opacity: 1;
+}
+
+.p-hide {
+	opacity: 0;
 }
 
 .new-entry-button {

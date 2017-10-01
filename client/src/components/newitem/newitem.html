@@ -1,11 +1,13 @@
 <div id="add-inp" ng-class="{'display-vis-inline': vm.barActive,
 'display-none': !vm.barActive}">
-    <div ng-class="{'display-prev': vm.barActive,
-    'display-none': !vm.barActive}" id="preview-panel">
+    <div ng-class="{'display-prev': vm.barActive && vm.previewResults != null,
+    'display-none': !vm.barActive || vm.previewResults == null}" id="preview-panel">
         <img ng-show="vm.previewResults != null && vm.barActive" class="preview-poster" ng-src="{{vm.make_poster_url()}}">
         <div ng-show="vm.previewResults != null && vm.barActive" id="info">
-            <p class="prev-title">{{vm.previewResults.title}} </p>
-            <p class="prev-title">
+            <p ng-class="{'p-show': vm.barActive && vm.previewResults != null,
+            'p-hide': !vm.barActive || vm.previewResults == null}" class="prev-title">{{vm.previewResults.title}} </p>
+            <p ng-class="{'p-show': vm.barActive && vm.previewResults != null,
+            'p-hide': !vm.barActive || vm.previewResults == null}" class="prev-title">
             {{vm.previewResults.release_date | date:'y'}} </p>
             <button ng-show="vm.previewResults != null" class="new-entry-button no-bord" ng-click="vm.add_new(vm.previewResults)">+</button>
         </div>

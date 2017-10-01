@@ -74,6 +74,7 @@
         vm.queue_update = function(query) {
             if(query=="") {
                 vm.previewResults = null;
+                return;
             }
             dataService.getPreview(query)
             .success(function(data) {
