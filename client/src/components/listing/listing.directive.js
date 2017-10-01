@@ -113,18 +113,6 @@
             vm.update();
         });
 
-        vm.test_add = function(title) {
-            dataService.addMovie(title)
-            .error(function(err){
-                console.log(err);
-                if(err === null) {
-                    vm.errorMessage = "Something went wrong with the server :("; 
-                } else {
-                    vm.errorMessage = err.message;
-                }
-            }).then(function() {
-                vm.update();
-            })
-        };
+        
     }
 })();

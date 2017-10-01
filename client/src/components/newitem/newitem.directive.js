@@ -41,13 +41,46 @@
         var QUERY_INTERVAL = 1000;  //in milliseconds
         vm.lastQuery = 0;   //Make the first query run instantly
         vm.previewResults = null;
-        vm.nextQueryStr = null;
+        //vm.nextQueryStr = null;
 
+        vm.make_poster_url = function() {
+            if(vm.previewResults == null) {
+                return "";
+            }
+            console.log(vm.previewResults);
+            return "https://image.tmdb.org/t/p/w500/" + vm.previewResults.poster_path;
+        }
+
+        vm.setBarActive = function(b) {
+            vm.barActive = b;
+            vm.previewResults = null;
+            vm.add_inp = "";
+        }
+
+        vm.add_new = function(movie_data) {
+            dataService.addMovie(movie_data)
+            .error(function(err){
+                console.log(err);
+                if(err === null) {
+                    vm.errorMessage = "Something went wrong with the server :("; 
+                } else {
+                    vm.errorMessage = err.message;
+                }
+            }).then(function() {
+                $scope.$emit('update');
+            })
+        };
+        
         vm.queue_update = function(query) {
             if(query=="") {
-                return;
+                vm.previewResults = null;
             }
-            vm.previewResults = dataService.getPreview(query);
+            dataService.getPreview(query)
+            .success(function(data) {
+                vm.previewResults = data;
+            }).error(function(e) {
+                console.log(e);
+            })
 
             /*var curr_time = Date.now();
             vm.nextQueryStr = query;

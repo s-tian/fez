@@ -44,5 +44,9 @@
                 $scope.$emit('update');
             })
         };
+
+        vm.get_poster_url = function() {
+            return "https://image.tmdb.org/t/p/w500/" + $scope.movie.poster_url;
+        }
     };
 })();

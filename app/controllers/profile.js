@@ -30,39 +30,18 @@ module.exports.addMovie = function(req, res) {
   } else {
     // Otherwise continue
     var new_movie = new Movie();
-    new_movie.title = req.body.title;
-    User.findByIdAndUpdate(
+    new_movie.title = req.body.movie_data.title;
+    new_movie.poster_url = req.body.movie_data.poster_path;
+    new_movie.watched = false;
+    User.findByIdAndUpdate( 
       req.payload._id,
       {$push: {"movie_list": new_movie}},
       {safe: true, upsert: false, new: true},
       function(err, model) {
-        console.log(err);
         res.status(200).json({"success": !err});
       }
     );
-    console.log("Updating info for user...");
-  }
-}
-
-module.exports.addMovie = function(req, res) {
-  if (!req.payload._id) {
-    res.status(401).json({
-      "message" : "UnauthorizedError: private profile"
-    });
-  } else {
-    // Otherwise continue
-    var new_movie = new Movie();
-    new_movie.title = req.body.title;
-    User.findByIdAndUpdate(
-      req.payload._id,
-      {$push: {"movie_list": new_movie}},
-      {safe: true, upsert: false, new: true},
-      function(err, model) {
-        console.log(err);
-        res.status(200).json({"success": !err});
-      }
-    );
-    console.log("Updating info for user...");
+    console.log("Adding movie for user..." + new_movie.title);
   }
 }
 

@@ -2,7 +2,7 @@
 
 <section id="listing-view" class="container-fluid">
   <div class="container movie_listing">
-    <div ng-repeat="movie in vm.test_movie_list | searchBoxFilter:vm.searchBarEntry.text">
+    <div ng-repeat="movie in vm.user.movie_list | searchBoxFilter:vm.searchBarEntry.text">
     	<div class="clearfix" ng-if="$index != 0 && $index % 4 == 0 && vm.windowWidth >= 1200"></div>
     	<div class="col-lg-3 col-md-4 col-sm-6 col-padding">
     		<infotile movie="movie"> </infotile>

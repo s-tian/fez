@@ -1,7 +1,15 @@
 <div id="add-inp" ng-class="{'display-vis-inline': vm.barActive,
-'display-none': !vm.barActive}"
- ng-mouseover="vm.barActive=true"
- ng-mouseleave="vm.barActive=false; vm.barOpen = false">
+'display-none': !vm.barActive}">
+    <div ng-class="{'display-prev': vm.barActive,
+    'display-none': !vm.barActive}" id="preview-panel">
+        <img ng-show="vm.previewResults != null && vm.barActive" class="preview-poster" ng-src="{{vm.make_poster_url()}}">
+        <div ng-show="vm.previewResults != null && vm.barActive" id="info">
+            <p class="prev-title">{{vm.previewResults.title}} </p>
+            <p class="prev-title">
+            {{vm.previewResults.release_date | date:'y'}} </p>
+            <button ng-show="vm.previewResults != null" class="new-entry-button no-bord" ng-click="vm.add_new(vm.previewResults)">+</button>
+        </div>
+    </div>
     <div ng-show="vm.barActive" class="new-movie">
             <input ng-class="{'display-inp': vm.barActive,
             'display-none': !vm.barActive}"
@@ -10,6 +18,6 @@
     </div>
 </div>
 
-<button id="add-button" class="no-bord" ng-click="vm.barOpen = !vm.barOpen; vm.barActive = vm.barOpen">
+<button id="add-button" class="no-bord" ng-click="vm.barOpen = !vm.barOpen; vm.setBarActive(vm.barOpen)">
     <i id="add-icon" class="no-bord material-icons">add_to_queue</i>
 </button>

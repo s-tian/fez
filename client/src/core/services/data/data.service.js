@@ -16,8 +16,8 @@
       });
     };
 
-    var addMovie = function (title) {
-      return $http.post('http://localhost:8080/api/add', {"title": title} ,{
+    var addMovie = function (movie_data) {
+      return $http.post('http://localhost:8080/api/add', {"movie_data": movie_data} ,{
         headers: {
           Authorization: 'Bearer '+ authentication.getToken()
         }

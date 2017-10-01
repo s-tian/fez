@@ -15,12 +15,7 @@ module.exports.register = function(req, res) {
   user.email = req.body.email;
 
   user.setPassword(req.body.password);
-  var movie1 = new Movie();
-  movie1.title = "good movie";
-  var movie2 = new Movie();
-  movie2.title = "gr8 movie";
-  user.movie_list = [movie1, movie2];
-  
+  user.movie_list = [];  
   user.save(function(err) {
     var token;
     token = user.generateJwt();

@@ -6,6 +6,7 @@
         'core.data',
         'app.listing.searchbar',
         'app.listing.infotile',
-        'app.listing.newitem'
+        'app.listing.newitem',
+        'ngAnimate'
     ]);
 })();

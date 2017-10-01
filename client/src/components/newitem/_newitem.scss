@@ -32,6 +32,7 @@
 
 .display-none {
 	width: 0px;
+	padding: 0;
 }
 
 .display-inp{
@@ -45,4 +46,62 @@
 	right: 30px;
 	font-family: 'Montserrat', sans-serif;
 	transition: width 0.3s ease-in-out;
+}
+
+#preview-panel {
+	position: absolute;
+	top: -90px;
+	right: 30px;
+	float: right;
+	height: 90px;
+	background-color: white;
+	webkit-box-shadow: 0 5px 8px -6px #999;
+    moz-box-shadow: 0 5px 8px -6px #999;
+  	box-shadow: 0 5px 8px -6px #999;
+  	border-radius: 5px 5px 0 0;
+  	transition: width 0.3s ease-in-out;
+  	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    webkit-box-sizing: border-box;
+}
+
+.display-prev{
+	width: 280px;
+	padding: 10px 10px 10px 10px;
+}
+
+.preview-poster {
+	width: 50px;
+	height: auto;
+	display: inline-block;
+}
+
+#info {
+	display: block;
+	width: 190px;
+	float: right;
+	height: 100%;
+	margin: 0 10px 0 10px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.prev-title {
+	display: block;
+	width: 180px;
+	height: 50%;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+}
+
+.new-entry-button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background: none;
+	border: none;
+	color: gray;
+	font-size: 40px;
+	&:hover {
+		color: black;
+	}
 }

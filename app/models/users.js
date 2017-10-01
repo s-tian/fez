@@ -7,7 +7,12 @@ var movieSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
-  }
+  },
+  poster_url: {
+    type: String,
+    required: true
+  },
+  watched: Boolean
 });
 mongoose.model('Movie', movieSchema);
 
