@@ -7,6 +7,8 @@ var auth = jwt({
   userProperty: 'payload'
 });
 
+// These are all /api/ paths, redirected from server.js
+
 var ctrlProfile = require('./controllers/profile');
 var ctrlAuth = require('./controllers/authentication');
 var ctrlMovie = require('./controllers/movie_data')

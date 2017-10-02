@@ -2,19 +2,7 @@ var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
 var jwt_config = require('./jwt_config')
-
-var movieSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true
-  },
-  poster_url: {
-    type: String,
-    required: true
-  },
-  watched: Boolean
-});
-mongoose.model('Movie', movieSchema);
+var movieSchema = require('./movies.js');
 
 var userSchema = new mongoose.Schema({
   email: {
@@ -45,7 +33,7 @@ userSchema.methods.generateJwt = function() {
     _id: this._id,
     email: this.email,
     exp: parseInt(expiry.getTime() / 1000),
-  }, jwt_config.jwt_secret); // TODO: Use environment variable
+  }, jwt_config.jwt_secret);
 };
 
 mongoose.model('User', userSchema);

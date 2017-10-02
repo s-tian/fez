@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-var User = mongoose.model('User');
 var jwt = require('jsonwebtoken');
+var User = mongoose.model('User');
 var Movie = mongoose.model('Movie');
 
 module.exports.profileRead = function(req, res) {
@@ -19,7 +19,6 @@ module.exports.profileRead = function(req, res) {
       });
     console.log("Getting information for user..");
   }
-
 };
 
 module.exports.addMovie = function(req, res) {
@@ -35,8 +34,8 @@ module.exports.addMovie = function(req, res) {
     new_movie.watched = false;
     User.findByIdAndUpdate( 
       req.payload._id,
-      {$push: {"movie_list": new_movie}},
-      {safe: true, upsert: false, new: true},
+      { $push: {"movie_list": new_movie} },
+      { safe: true, upsert: false, new: true },
       function(err, model) {
         res.status(200).json({"success": !err});
       }

@@ -59,7 +59,7 @@ app.use(function (err, req, res, next) {
   }
 });
 
-app.use('/api', routesApi);
+app.use('/api', routesApi); //Redirect /api routes to router in app/routes.js
 
 app.get('/',function(req,res){
     res.sendFile('client/build/index.html' , { root : __dirname });
