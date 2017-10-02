@@ -1,13 +1,13 @@
 {
-  "name": "angular-template",
-  "description": "A template to kick-start AngularJS projects",
+  "name": "fez",
+  "description": "A A friendly list of movies you want to watch.",
   "version": "0.1.0",
-  "author": "Naresh Bhatia",
+  "author": "Stephen Tian",
   "license": "MIT",
-  "homepage": "https://github.com/archfirst/angular-template",
+  "homepage": "https://github.com/s-tian/fez",
   "repository": {
     "type": "git",
-    "url": "https://github.com/archfirst/angular-template.git"
+    "url": "https://github.com/s-tian/fez.git"
   },
   "scripts": {
     "init": "npm install",
