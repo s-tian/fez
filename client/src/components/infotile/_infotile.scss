@@ -80,3 +80,9 @@ i[class*=fa-times]::before{
 .no-bord:focus {
   outline: none;
 }
+
+#watched-mark {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}

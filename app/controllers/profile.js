@@ -34,8 +34,14 @@ module.exports.addMovie = function(req, res) {
     new_movie.watched = false;
     User.findByIdAndUpdate( 
       req.payload._id,
-      { $push: {"movie_list": new_movie} },
-      { safe: true, upsert: false, new: true },
+      { 
+        $push: {
+          movie_list: {
+            $each: [new_movie],
+            $position: 0
+          }
+        },
+      },
       function(err, model) {
         res.status(200).json({"success": !err});
       }
@@ -62,5 +68,26 @@ module.exports.deleteMovie = function(req, res) {
     console.log("Deleting movie...");
   }
 }
+
+
+module.exports.setWatchedMovie = function(req, res) {
+  if (!req.payload._id) {
+    res.status(401).json({
+      "message" : "UnauthorizedError: private profile"
+    });
+  } else {
+    // Otherwise continue
+    User
+    .update({_id: req.payload._id, 'movie_list._id': req.body.id},
+    {'$set': {
+        'movie_list.$.watched': true
+    }},
+    function(err, module) {
+        res.status(200).json({"success": !err});
+    });
+    console.log("Setting movie as watched...");
+  }
+}
+
 
 

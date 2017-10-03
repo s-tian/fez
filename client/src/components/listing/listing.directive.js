@@ -35,84 +35,42 @@
         }
 
         var vm = this;
-
-        vm.user = {};
-
-        vm.windowWidth = $window.innerWidth;
-
-        dataService.getProfile()
-        .success(function(data) {
-            vm.user = data;
-        })
-        .error(function (e) {
-            console.log(e);
-        });
-
-        vm.searchBarEntry = {
-            text: ""
+        
+        function sort_list_by_watched(movie_list) {
+            return movie_list.sort(function(a, b) {
+                if(a.watched == b.watched) {
+                    return 0;
+                } else if (b.watched) {
+                    return -1;
+                }
+                return 1;
+            });
         }
-
-        vm.test_movie_list = [
-            {
-                title: "Spiderman",
-                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
-            },
-            {
-                title: "Spiderman",
-                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
-            },
-            {
-                title: "Spiderman",
-                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
-            },
-            {
-                title: "Spiderman",
-                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
-            },
-            {
-                title: "Spiderman",
-                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
-            },
-            {
-                title: "Spiderman",
-                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
-            },
-            {
-                title: "Spiderman",
-                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
-            },
-            {
-                title: "Spiderman",
-                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
-            },
-            {
-                title: "Spiderman",
-                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
-            },
-            {
-                title: "Spiderman",
-                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
-            },
-            {
-                title: "Spiderman",
-                poster_url: "http://image.tmdb.org/t/p/w500//rZd0y1X1Gw4t5B3f01Qzj8DYY66.jpg"
-            }
-        ]
 
         vm.update = function() {
             dataService.getProfile()
             .success(function(data) {
                 vm.user = data;
+                vm.user.movie_list = sort_list_by_watched(vm.user.movie_list);
             })
             .error(function (e) {
                 console.log(e);
             });
         }
-
+        // Allow events emitted by isolate scope subcomponents 
+        // to update the state of the list.
         $scope.$on('update', function (e, event) {
             vm.update();
         });
 
-        
+        vm.user = {};
+
+        vm.windowWidth = $window.innerWidth;
+
+        vm.update();
+    
+        vm.searchBarEntry = {
+            text: ""
+        }
     }
 })();

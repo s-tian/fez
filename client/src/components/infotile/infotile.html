@@ -2,7 +2,7 @@
 	<img class="movie_poster" ng-src="{{vm.get_poster_url()}}">
 	<div class="overlay">
 		<div class="button-div">
-			<button title="Mark as watched" class="fa-button no-bord">
+			<button ng-show="!movie.watched" title="Mark as watched" ng-click="vm.setWatchedMovie()" class="fa-button no-bord">
 				<i class="fa fa-check fa-3x no-bord" aria-hidden="true"></i>
 			</button>
 			<button title="Remove" ng-click="vm.deleteMovie()" class="fa-button no-bord">
@@ -10,4 +10,6 @@
 			</button>
 		</div>
 	</div>
+	<i ng-show="movie.watched" class="fa fa-check-square fa-2x no-bord" id="watched-mark" aria-hidden="true"></i>
+
 </div>

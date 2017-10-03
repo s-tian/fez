@@ -16,6 +16,7 @@ var ctrlMovie = require('./controllers/movie_data')
 router.get('/user', auth, ctrlProfile.profileRead);
 router.post('/add', auth, ctrlProfile.addMovie);
 router.post('/delete', auth, ctrlProfile.deleteMovie);
+router.post('/watched', auth, ctrlProfile.setWatchedMovie);
 router.post('/preview', ctrlMovie.getSearchData);
 router.get('/')
 // authentication

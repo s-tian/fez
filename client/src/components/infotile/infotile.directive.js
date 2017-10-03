@@ -45,8 +45,24 @@
             })
         };
 
+        vm.setWatchedMovie = function() {
+            dataService.setWatchedMovie($scope.movie._id)
+            .error(function(err){
+                console.log(err);
+                if(err === null) {
+                    vm.errorMessage = "Something went wrong with the server :("; 
+                } else {
+                    vm.errorMessage = err.message;
+                }
+            }).then(function() {
+                $scope.$emit('update');
+            })
+        };
+
         vm.get_poster_url = function() {
             return "https://image.tmdb.org/t/p/w500/" + $scope.movie.poster_url;
         }
+
+        console.log($scope.movie.watched);
     };
 })();

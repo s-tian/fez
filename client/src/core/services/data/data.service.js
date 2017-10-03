@@ -32,6 +32,14 @@
       });
     };
 
+    var setWatchedMovie = function (id) {
+      return $http.post('http://localhost:8080/api/watched', {"id": id} ,{
+        headers: {
+          Authorization: 'Bearer '+ authentication.getToken()
+        }
+      });
+    };
+
     var getPreview = function(query) {
       return $http.post('http://localhost:8080/api/preview', {"query": query}, {
         headers: {
@@ -44,6 +52,7 @@
       getProfile : getProfile,
       addMovie : addMovie,
       deleteMovie: deleteMovie,
+      setWatchedMovie: setWatchedMovie,
       getPreview: getPreview
     };
   }
