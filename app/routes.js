@@ -18,6 +18,7 @@ router.post('/add', auth, ctrlProfile.addMovie);
 router.post('/delete', auth, ctrlProfile.deleteMovie);
 router.post('/watched', auth, ctrlProfile.setWatchedMovie);
 router.post('/preview', ctrlMovie.getSearchData);
+router.get('/popular', ctrlMovie.getPopularList);
 router.get('/')
 // authentication
 router.post('/register', ctrlAuth.register);

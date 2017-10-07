@@ -48,12 +48,21 @@
       });
     }
 
+    var getPopular = function() {
+      return $http.get('http://localhost:8080/api/popular', {
+        headers: {
+          Authorization: 'Bearer '+ authentication.getToken()
+        }
+      });
+    }
+
     return {
       getProfile : getProfile,
       addMovie : addMovie,
       deleteMovie: deleteMovie,
       setWatchedMovie: setWatchedMovie,
-      getPreview: getPreview
+      getPreview: getPreview,
+      getPopular: getPopular
     };
   }
 

@@ -15,9 +15,9 @@
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
-            .state('dashboard', {
+            .state('front', {
                 url: '/',
-                template: '<tmpl-dashboard></tmpl-dashboard>'
+                template: '<tmpl-front></tmpl-front>'
             });
         $stateProvider
             .state('login', {

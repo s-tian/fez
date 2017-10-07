@@ -6,7 +6,7 @@
         'app.core',
         // Features
         'app.approot',
-        'app.dashboard',
+        'app.front',
         'app.topnav',
         'app.login',
         'app.register',
