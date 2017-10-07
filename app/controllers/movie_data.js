@@ -25,21 +25,30 @@ module.exports.getSearchData = function(req, res) {
 
 module.exports.getPopularList = function(req, res) {
   // Query API
-  var url = "https://api.themoviedb.org/3/movie/popular?api_key=" + api_config.api_key + "&language=en-US&page=1";
+  var popular_movie_titles = [];
+  var get_movie_page = function(index) {
+    var url = "https://api.themoviedb.org/3/movie/popular?api_key=" + api_config.api_key + "&language=en-US&page=" + index.toString();
+    request(url, function (error, response, body) {
+      //console.log('error:', error); // Print the error if one occurred
+      //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+      var body_json = JSON.parse(body);
+      //console.log(body_json.results[0]);
+      if(!error && body_json.results != null) {
+        body_json.results.forEach(function(obj) {
+          if(obj.title.length < 15) {   //Don't get movie titles that are too long to display.
+            popular_movie_titles.push(obj.title);
+          }
+        });
+        if(popular_movie_titles.length > 15) {
+          res.status(200).json(JSON.stringify(popular_movie_titles)); // Get first page of popular movies to display
+        } else {
+          get_movie_page(index+1);
+        }
+      } else {
+        res.status(404).json(error);
+      }
+    });
+  };
+  get_movie_page(1);
 
-  request(url, function (error, response, body) {
-    //console.log('error:', error); // Print the error if one occurred
-    //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-    var body_json = JSON.parse(body);
-    //console.log(body_json.results[0]);
-    if(!error && body_json.results != null) {
-      var popular_movie_titles = [];
-      body_json.results.forEach(function(obj) {
-        popular_movie_titles.push(obj.title);
-      });
-      res.status(200).json(JSON.stringify(popular_movie_titles)); // Get first page of popular movies to display
-    } else {
-      res.status(404).json(error);
-    }
-  });
 }

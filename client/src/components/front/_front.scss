@@ -1,21 +1,19 @@
 #front-view {
-	margin: 0 15% 0 15%;
-	padding: 10% 0 10% 0;
+	padding: 0 5% 0 5%;
+	background-color: #eaebed;
 }
 
 h2 {
 	color: #555555;
 	font-size: 30px;
 	font-family: 'Montserrat', sans-serif;
-	text-align: center;
 }
 
 .ml11 {
 	margin: 10% 0 10% 0;
 	font-weight: 900;
-	font-size: 3.5em;
-	color: #e67e22;
-	text-align: center;
+	font-size: 3.75em;
+	color: $button-orange;
 }
 
 .ml11 .text-wrapper {
@@ -44,5 +42,73 @@ h2 {
 .ml11 .letter {
 	display: inline-block;
 	line-height: 1em;
+}
+
+.info-text {
+	margin-top: 15%;
+	margin-bottom: 10%;
+	width: 70%;
+	font-family: 'Droid Serif', serif;
+	font-size: 1.5em;
+}
+
+#suggestions {
+	width: 100%;
+	padding-left: 10%;
+	margin: 0 auto;
+}
+
+#info-col {
+	padding-top: 5%;
+	background-color: white;
+	webkit-box-shadow: 6px 5px 8px -6px #999;
+  	moz-box-shadow: 6px 5px 8px -6px #999;
+  	box-shadow: 6px 5px 8px -6px #999;
+}
+
+#ss-col {
+	padding: 15% 5% 10% 0%;
+	text-align: center;
+}
+
+#buttons {
+	width: 100%;
+	padding-bottom: 10%;
+	.btn-frontpage {
+		font-size: 1.3em;
+		margin: 0 5% 0 0;
+	}
+}
+
+#screenshot {
+	webkit-box-shadow: 8px 8px 8px -6px #999;
+  	moz-box-shadow: 8px 8px 8px -6px #999;
+  	box-shadow: 8px 8px 8px -6px #999;
+  	height: auto;
+  	width: 500px;
+}
+
+@media (max-width: 767px) {
+	#ss-col {
+		display: none;
+	}
+	#info-col {
+		margin-top: 5%;
+	}
+
+}
+
+@media (max-width: 414px) {
+	#buttons .btn-frontpage {
+		margin-top: 5%;
+	}
+	.ml11 {
+		font-size: 2em;
+	}
+
+	.info-text {
+		width: 100%;
+	}
+
 }
 

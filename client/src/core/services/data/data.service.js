@@ -8,6 +8,8 @@
   dataService.$inject = ['$http', 'authentication'];
   function dataService ($http, authentication) {
 
+    var state = {animationStarted: false};
+
     var getProfile = function () {
       return $http.get('http://localhost:8080/api/user', {
         headers: {
@@ -62,7 +64,8 @@
       deleteMovie: deleteMovie,
       setWatchedMovie: setWatchedMovie,
       getPreview: getPreview,
-      getPopular: getPopular
+      getPopular: getPopular,
+      state: state
     };
   }
 
