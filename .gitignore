@@ -26,3 +26,5 @@ build/
 app/models/db.js
 app/models/jwt_config.js
 app/models/movie_db_config.js
+resources/
+config/

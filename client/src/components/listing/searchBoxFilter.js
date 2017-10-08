@@ -1,3 +1,5 @@
+"use strict";
+
 (function() {
   angular.module('app.listing')
   .filter('searchBoxFilter', function () {
