@@ -51,7 +51,11 @@
             dataService.getProfile()
             .success(function(data) {
                 vm.user = data;
-                vm.user.movie_list = sort_list_by_watched(vm.user.movie_list);
+                if(vm.user != null) {
+                    vm.user.movie_list = sort_list_by_watched(vm.user.movie_list);
+                } else {
+                    vm.user = {"movie_list": []};
+                }
             })
             .error(function (e) {
                 console.log(e);
