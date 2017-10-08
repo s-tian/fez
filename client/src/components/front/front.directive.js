@@ -67,6 +67,7 @@
                 if($state.includes("front")) {
                     vm.animate_movie_title((index+1) % vm.popular_movie_list.length)
                 } else {
+                    dataService.state.animationStarted = false;
                     return; //If no longer viewing the front page, stop the animation.s
                 }
             }})
