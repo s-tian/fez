@@ -117,6 +117,7 @@
             })
             .error(function (e) {
                 console.log(e);
+                $('.ml11 .letters').text("good movies lately?");  // Default in failure case
             }); 
         }
         
