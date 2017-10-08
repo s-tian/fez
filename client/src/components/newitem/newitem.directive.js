@@ -47,7 +47,7 @@
             if(vm.previewResults == null) {
                 return "";
             }
-            console.log(vm.previewResults);
+            //console.log(vm.previewResults);
             return "https://image.tmdb.org/t/p/w500/" + vm.previewResults.poster_path;
         }
 

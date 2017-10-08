@@ -31,6 +31,7 @@
     ControllerFunction.$inject = ['$scope', 'dataService'];
     function ControllerFunction($scope, dataService) {
         var vm = this;
+        // console.log($scope.movie.runtime);
         vm.deleteMovie = function() {
             dataService.deleteMovie($scope.movie._id)
             .error(function(err){
@@ -62,7 +63,5 @@
         vm.get_poster_url = function() {
             return "https://image.tmdb.org/t/p/w500/" + $scope.movie.poster_url;
         }
-
-        console.log($scope.movie.watched);
     };
 })();

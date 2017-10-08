@@ -50,5 +50,22 @@ module.exports.getPopularList = function(req, res) {
     });
   };
   get_movie_page(1);
+}
 
+module.exports.getRuntime = function(movie_id, callback) {
+  var url = "https://api.themoviedb.org/3/movie/" + movie_id.toString() + "?api_key=" + api_config.api_key + "&language=en-US";
+  request(url, function(error, response, body) {
+    var body_json = JSON.parse(body);
+    if(!error & body_json.runtime != null) {
+      if(typeof callback === "function") {
+        // Make sure the function that called getRuntime
+        // has its callback function executed after the
+        // API call
+        
+        callback(body_json.runtime);
+      }
+    } else {
+      console.log(error);
+    }
+  })
 }

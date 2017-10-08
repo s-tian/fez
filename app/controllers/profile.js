@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var jwt = require('jsonwebtoken');
 var User = mongoose.model('User');
 var Movie = mongoose.model('Movie');
+var ctrlMovie = require('./movie_data')
 
 module.exports.profileRead = function(req, res) {
 
@@ -32,7 +33,9 @@ module.exports.addMovie = function(req, res) {
     new_movie.title = req.body.movie_data.title;
     new_movie.poster_url = req.body.movie_data.poster_path;
     new_movie.watched = false;
-    User.findByIdAndUpdate( 
+    ctrlMovie.getRuntime(req.body.movie_data.id, function(runtime) {
+      new_movie.runtime = runtime;
+      User.findByIdAndUpdate(
       req.payload._id,
       { 
         $push: {
@@ -44,9 +47,9 @@ module.exports.addMovie = function(req, res) {
       },
       function(err, model) {
         res.status(200).json({"success": !err});
-      }
-    );
-    console.log("Adding movie for user..." + new_movie.title);
+      });
+      console.log("Adding movie for user..." + new_movie.title);
+    });
   }
 }
 

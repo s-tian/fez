@@ -9,6 +9,10 @@ module.exports = movieSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  runtime: {
+  	type: Number,
+  	required: true
+  },
   watched: Boolean
 });
 
