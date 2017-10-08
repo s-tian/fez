@@ -26,7 +26,7 @@
     var split_markers = [":", "hour", "h", "hr", "and"];
     split_markers.forEach(function(element) {
       if(query.includes(element)) {
-        components = query.split(element);
+        var components = query.split(element);
         reqtime = 60*parseInt(components[0]);
         if(components[1] != "") {
           reqtime += parseInt(components[1]);
