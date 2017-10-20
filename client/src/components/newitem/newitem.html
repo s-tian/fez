@@ -9,14 +9,14 @@
             <p ng-class="{'p-show': vm.barActive && vm.previewResults != null,
             'p-hide': !vm.barActive || vm.previewResults == null}" class="prev-title">
             {{vm.previewResults.release_date | date:'y'}} </p>
-            <button ng-show="vm.previewResults != null" class="new-entry-button no-bord" ng-click="vm.add_new(vm.previewResults)">+</button>
+            <button ng-show="vm.previewResults != null" class="new-entry-button no-bord" ng-click="vm.addNew(vm.previewResults)">+</button>
         </div>
     </div>
     <div ng-show="vm.barActive" class="new-movie">
             <input ng-class="{'display-inp': vm.barActive,
             'display-none': !vm.barActive}"
-            ng-change="vm.queue_update(vm.add_inp)"
-            class="form-control" id="new-inp" placeholder="Add a new movie..." ng-model="vm.add_inp">
+            ng-change="vm.updateQueue(vm.addInp)"
+            class="form-control" id="new-inp" placeholder="Add a new movie..." ng-model="vm.addInp">
     </div>
 </div>
 

@@ -56,16 +56,15 @@
         // Wrap every letter in a span
         
 
-        vm.animate_movie_title = function(index) {
-            console.log(vm.popular_movie_list);
-            $('.ml11 .letters').text(vm.popular_movie_list[index]);
+        vm.animateMovieTitle = function(index) {
+            $('.ml11 .letters').text(vm.popularMovieList[index]);
             $('.ml11 .letters').each(function(){
                 $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
                 $(this).append("<span class='letter'>?</span>")
             });
             anime.timeline({complete: function(anim) {
                 if($state.includes("front")) {
-                    vm.animate_movie_title((index+1) % vm.popular_movie_list.length)
+                    vm.animateMovieTitle((index+1) % vm.popularMovieList.length)
                 } else {
                     dataService.state.animationStarted = false;
                     return; //If no longer viewing the front page, stop the animation.s
@@ -107,14 +106,14 @@
         }
 
         // First, get a list of popular movies from the API
-        vm.popular_movie_list = null;
+        vm.popularMovieList = null;
         if(!dataService.state.animationStarted) {
             dataService.getPopular()
             .success(function(data) {
-                vm.popular_movie_list = JSON.parse(data);
-                shuffle(vm.popular_movie_list);
+                vm.popularMovieList = JSON.parse(data);
+                shuffle(vm.popularMovieList);
                 dataService.state.animationStarted = true; // Ensure the animation is only started once.
-                vm.animate_movie_title(0);  // Start the recursive calls going 
+                vm.animateMovieTitle(0);  // Start the recursive calls going 
             })
             .error(function (e) {
                 console.log(e);

@@ -35,7 +35,7 @@
         vm.barActive = false;
         //
 
-        vm.add_inp = "";
+        vm.addInp = "";
 
         //In order to not spam the API, only query in intervals.
         var QUERY_INTERVAL = 1000;  //in milliseconds
@@ -43,7 +43,7 @@
         vm.previewResults = null;
         //vm.nextQueryStr = null;
 
-        vm.make_poster_url = function() {
+        vm.makePosterUrl = function() {
             if(vm.previewResults == null) {
                 return "";
             }
@@ -54,11 +54,11 @@
         vm.setBarActive = function(b) {
             vm.barActive = b;
             vm.previewResults = null;
-            vm.add_inp = "";
+            vm.addInp = "";
         }
 
-        vm.add_new = function(movie_data) {
-            dataService.addMovie(movie_data)
+        vm.addNew = function(movieData) {
+            dataService.addMovie(movieData)
             .error(function(err){
                 console.log(err);
                 if(err === null) {
@@ -71,7 +71,7 @@
             })
         };
         
-        vm.queue_update = function(query) {
+        vm.updateQueue = function(query) {
             if(query=="") {
                 vm.previewResults = null;
                 return;

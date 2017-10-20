@@ -36,7 +36,7 @@
 
         var vm = this;
         
-        function sort_list_by_watched(movie_list) {
+        function sortListByWatched(movie_list) {
             return movie_list.sort(function(a, b) {
                 if(a.watched == b.watched) {
                     return 0;
@@ -52,7 +52,7 @@
             .success(function(data) {
                 vm.user = data;
                 if(vm.user != null) {
-                    vm.user.movie_list = sort_list_by_watched(vm.user.movie_list);
+                    vm.user.movie_list = sortListByWatched(vm.user.movie_list);
                 } else {
                     vm.user = {"movie_list": []};
                 }
