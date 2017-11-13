@@ -1,10 +1,10 @@
 {
-  "name": "angular-template",
+  "name": "fez-client",
   "version": "0.1.0",
-  "description": "A template to kick-start AngularJS projects",
-  "author": "Naresh Bhatia",
+  "description": "A nice movie queue.",
+  "author": "Stephen Tian",
   "license": "MIT",
-  "homepage": "https://github.com/archfirst/angular-template",
+  "homepage": "https://github.com/s-tian/fez",
   "ignore": [
     "**/.*",
     "node_modules",
