@@ -17,14 +17,19 @@ module.exports.register = function(req, res) {
   user.setPassword(req.body.password);
   user.movie_list = [];  
   user.save(function(err) {
+    if (err) {
+      res.status(404).json({message: "Email already in use"});
+      console.log(err);
+      return;
+    }
     var token;
     token = user.generateJwt();
     res.status(200);
     res.json({
       "token" : token
     });
+    console.log("Saved user " + req.body.email);
   });
-  console.log("Saved user " + req.body.email);
 };
 
 module.exports.login = function(req, res) {

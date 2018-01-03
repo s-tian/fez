@@ -37,6 +37,9 @@
         var vm = this;
         
         function sortListByWatched(movie_list) {
+            if (movie_list == null) {
+                return [];
+            }
             return movie_list.sort(function(a, b) {
                 if(a.watched == b.watched) {
                     return 0;

@@ -1,6 +1,7 @@
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
+var uniqueValidator = require('mongoose-unique-validator');
 var jwt_config = require('./jwt_config')
 var movieSchema = require('./movies.js');
 
@@ -14,6 +15,8 @@ var userSchema = new mongoose.Schema({
   salt: String,
   movie_list: [movieSchema]
 });
+
+userSchema.plugin(uniqueValidator);
 
 userSchema.methods.setPassword = function(password){
   this.salt = crypto.randomBytes(16).toString('hex');
